@@ -9,33 +9,29 @@ import studio from "@theatre/studio";
 import extension from "@theatre/r3f/dist/extension";
 import React, { Suspense } from "react";
 
-/* studio.extend(extension); */
-/* studio.initialize();
- */
+studio.extend(extension);
+studio.initialize();
+studio.ui.hide()
+
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
     <>
+    
      <React.StrictMode>
-    <Suspense fallback={null}>
+      <Suspense fallback={null}>
       <App />
-    </Suspense>
-  </React.StrictMode>
-    <Canvas
-        flat
-        /* camera={ {
-            fov: 45,
-            near: 0.1,
-            far: 50,
-            position: [ 1, 2, 6 ]
-        } } */
-    >
-        <color args={ [ '#030202' ] } attach="background" />
-        
+      <Canvas>
         <Experience />
-        
     </Canvas>
+    </Suspense>
+    </React.StrictMode>
+    
+    
    
     </>
+
+    
 )
+

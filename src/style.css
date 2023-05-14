@@ -13,7 +13,7 @@ body,
 .label > div
 {
     font-family: Helvetica, Arial;
-    position: fixed;
+    position: absolute;
     background: #00000088;
     color: white;
     padding: 15px;
@@ -22,4 +22,9 @@ body,
     
     border-radius: 30px;
     user-select: none;
+}
+
+.label {
+    position: fixed !important;
+
 }

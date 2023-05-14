@@ -52,7 +52,7 @@ export default function Experience()
                 wrapperClass="label"
                 center
                 distanceFactor={ 8 }
-                >this is a lamp
+                > <p>this is a lamp</p> 
                 </Html>
                 <meshBasicMaterial color="#ffffe5" />
             </mesh>
