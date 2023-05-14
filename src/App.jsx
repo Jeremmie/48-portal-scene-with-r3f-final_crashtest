@@ -38,7 +38,7 @@ function Scene() {
     sheet.sequence.position = scroll.offset * sequenceLength;
   });
 
-  const bgColor = "#84a4f4";
+  const bgColor = "#D489F3";
 
   return (
     <>
