@@ -19,14 +19,15 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 root.render(
     <>
     
-     <React.StrictMode>
       <Suspense fallback={null}>
-      <App />
+    
+     <App>
       <Canvas>
-        <Experience />
+      <Experience />
     </Canvas>
+    </App>
     </Suspense>
-    </React.StrictMode>
+    
     
     
    
