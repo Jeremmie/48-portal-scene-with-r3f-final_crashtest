@@ -50,15 +50,21 @@ export default function Experience()
             </mesh>
 
             <mesh geometry={ nodes.cube.geometry }>
+            <Html
+                 position={ [ 2, 1, 0.0 ] }
+                 wrapperClass="label"
+                 center
+                 distanceFactor={ 3 }
+                 > <p>this is a tower</p> 
+            </Html>
+
                 <meshBasicMaterial wireframe />
             </mesh>
 
-            <Swimming>
-                <meshBasicMaterial wireframe />
-            </Swimming>
+            <Swimming></Swimming>
 
             
-
+            
             
 
            {/*  <mesh geometry={ nodes.poleLightA.geometry } position={ nodes.poleLightA.position }>
