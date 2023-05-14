@@ -16,10 +16,9 @@ body,
     position: absolute;
     background: #00000088;
     color: white;
-    padding: 15px;
+    padding: 5px;
     white-space: nowrap;
     overflow: hidden;
-    
     border-radius: 30px;
     user-select: none;
 }
@@ -27,4 +26,8 @@ body,
 .label {
     position: fixed !important;
 
+}
+
+.label > div > p {
+    font-size: 0.5rem;
 }

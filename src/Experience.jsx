@@ -51,7 +51,7 @@ export default function Experience()
                 position={ [ 0.1, 0.1, 0.0 ] }
                 wrapperClass="label"
                 center
-                distanceFactor={ 4 }
+                distanceFactor={ 3 }
                 > <p>this is a lamp</p> 
                 </Html>
                 <meshBasicMaterial color="#ffffe5" />
