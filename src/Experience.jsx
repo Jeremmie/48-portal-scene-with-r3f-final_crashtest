@@ -7,6 +7,7 @@ import portalFragmentShader from './shaders/portal/fragment.glsl'
 import Swimming from "./swimming.jsx"
 import Computer_man from './computer_man.jsx'
 import { useControls } from 'leva'
+import { Perf } from 'r3f-perf'
 
 const PortalMaterial = shaderMaterial(
     {
@@ -22,12 +23,16 @@ extend({ PortalMaterial })
 
 export default function Experience()
 {
+    /**perf
+     * 
+     */
+    <Perf position="top-left" />
 
     /**
      * debug pannel
      */
-    const controls = useControls({ position: - 2 })
-    console.log(controls.position)
+    const {orbitCamera} = useControls({ orbitCamera: true })
+    
 
 
 
@@ -51,7 +56,8 @@ export default function Experience()
 
         <color args={["#D489F3"]} attach={"background"} />
 
-        {/* <OrbitControls makeDefault /> */}
+        
+        { orbitCamera && <OrbitControls makeDefault /> }
 
         <Center>
             <mesh geometry={ nodes.tower.geometry }>

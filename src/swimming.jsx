@@ -4,9 +4,9 @@ import * as THREE from 'three'
 
 export default function Swimming()
 {   
-    const swimming = useGLTF('./model/swimming.glb')
+    const swimming = useGLTF('./model/swimming.gltf')
     const animations = useAnimations(swimming.animations, swimming.scene)
-    const { nodes, materials } = useGLTF("./model/swimming.glb");
+    const { nodes } = useGLTF("./model/swimming.gltf");
 
     useEffect(() => {
         const action = animations.actions.swimming
@@ -14,9 +14,7 @@ export default function Swimming()
     }, [])
 
     // Parcourir tous les matériaux de la scène et mettre en mode wireframe
-    Object.values(materials).forEach((material) => {
-        material.wireframe = true;
-    });
+    
 
     const placeHolder = useRef()
     const [hidden, set] = useState()
@@ -25,6 +23,7 @@ export default function Swimming()
     <primitive
     object={swimming.scene}
     position={[7, 0, 0]}
+    
     >
         <Html
                  position={ [ 0.1, 0.1, 0.0 ] }
