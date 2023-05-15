@@ -8,3 +8,4 @@
 
 npms: 
   - npm install leva@0.9
+  - npm install r3f-perf@6.6
