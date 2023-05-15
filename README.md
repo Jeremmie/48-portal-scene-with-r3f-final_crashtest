@@ -1,6 +1,10 @@
-#rapport de stage
-camera on scroll animation test
+# Rapport de stage
 
 
-Pour régler la balise Html
-  - tester avec des placeholder qui cachent
+
+### erreurs: 
+
+- 'Text is not allowed in the R3F tree! This could be stray whitespace or characters.' --> checker si il y a des ";"
+
+npms: 
+  - npm install leva@0.9
