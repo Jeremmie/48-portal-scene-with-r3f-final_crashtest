@@ -6,6 +6,7 @@ import portalVertexShader from './shaders/portal/vertex.glsl'
 import portalFragmentShader from './shaders/portal/fragment.glsl'
 import Swimming from "./swimming.jsx"
 import Computer_man from './computer_man.jsx'
+import { useControls } from 'leva'
 
 const PortalMaterial = shaderMaterial(
     {
@@ -21,6 +22,15 @@ extend({ PortalMaterial })
 
 export default function Experience()
 {
+
+    /**
+     * debug pannel
+     */
+    const controls = useControls({ position: - 2 })
+    console.log(controls.position)
+
+
+
     const { nodes } = useGLTF('./model/tower.glb')
 
     const bakedTexture = useTexture('./model/baked.jpg')
@@ -41,7 +51,7 @@ export default function Experience()
 
         <color args={["#D489F3"]} attach={"background"} />
 
-        <OrbitControls makeDefault />
+        {/* <OrbitControls makeDefault /> */}
 
         <Center>
             <mesh geometry={ nodes.tower.geometry }>

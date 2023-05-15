@@ -47,7 +47,7 @@ function Scene() {
         theatreKey="Camera"
         makeDefault
         position={[0, 0, 0]}
-        fov={70}
+        fov={60}
         near={0.1}
         far={70}
       />

@@ -21,11 +21,10 @@ export default function Swimming()
     const placeHolder = useRef()
     const [hidden, set] = useState()
 
-    return <> 
-    <primitive 
+    return <>
+    <primitive
     object={swimming.scene}
     position={[7, 0, 0]}
-    
     >
         <Html
                  position={ [ 0.1, 0.1, 0.0 ] }
@@ -38,10 +37,10 @@ export default function Swimming()
                     transition: 'all 0.5s',
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
-                    }}
+                }}
                  > <p>this is a man</p> 
             </Html>
-    </primitive >;
+    </primitive >
 
     <Sphere material ref={placeHolder} position={[7, 0, 0]} scale={3} />
     </>
