@@ -1,10 +1,11 @@
-import { shaderMaterial, useAnimations, Sparkles, Center, useTexture, useGLTF, OrbitControls, Html } from '@react-three/drei'
+import { shaderMaterial, useAnimations, Sparkles, Center, useTexture, useGLTF, OrbitControls, Html, Box } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import portalVertexShader from './shaders/portal/vertex.glsl'
 import portalFragmentShader from './shaders/portal/fragment.glsl'
 import Swimming from "./swimming.jsx"
+import Computer_man from './computer_man.jsx'
 
 const PortalMaterial = shaderMaterial(
     {
@@ -26,9 +27,11 @@ export default function Experience()
     bakedTexture.flipY = false
     
     const portalMaterial = useRef()
+    const placeHolder = useRef()
 
+    const [hidden, set] = useState()
     
-
+    
    /*  useFrame((state, delta) =>
     {
         portalMaterial.current.uTime += delta
@@ -51,10 +54,17 @@ export default function Experience()
 
             <mesh geometry={ nodes.cube.geometry }>
             <Html
-                 position={ [ 2, 1, 0.0 ] }
+                 position={ [ 2, 1, 0 ] }
                  wrapperClass="label"
                  center
                  distanceFactor={ 3 }
+                 occlude={[placeHolder]}
+                 onOcclude={set}
+                    style={{
+                    transition: 'all 0.5s',
+                    opacity: hidden ? 0 : 1,
+                    transform: `scale(${hidden ? 0.5 : 1})`
+                    }}
                  > <p>this is a tower</p> 
             </Html>
 
@@ -63,8 +73,10 @@ export default function Experience()
 
             <Swimming></Swimming>
 
+            <Computer_man></Computer_man>
+
             
-            
+           
             
 
            {/*  <mesh geometry={ nodes.poleLightA.geometry } position={ nodes.poleLightA.position }>
@@ -99,3 +111,4 @@ export default function Experience()
 
     </>
 }
+
