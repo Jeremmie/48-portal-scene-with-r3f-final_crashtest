@@ -26,7 +26,7 @@ export default function Experience()
     /**perf
      * 
      */
-    <Perf position="top-left" />
+    
 
     /**
      * debug pannel
@@ -53,6 +53,8 @@ export default function Experience()
     }) */
 
     return <>
+        <Perf position="top-left" />
+
         <ambientLight intensity={1} />
         <color args={["#D489F3"]} attach={"background"} />
 
@@ -61,7 +63,7 @@ export default function Experience()
 
         <Center>
             <mesh geometry={ nodes.tower.geometry }>
-                <meshBasicMaterial wireframe />
+                <meshBasicMaterial />
             </mesh>
 
             <mesh geometry={ nodes.terrain.geometry }>
