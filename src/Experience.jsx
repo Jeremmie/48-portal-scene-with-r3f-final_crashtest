@@ -34,7 +34,7 @@ export default function Experience()
     const {orbitCamera} = useControls({ orbitCamera: true })
     
 
-
+    
 
     const { nodes } = useGLTF('./model/tower.glb')
 
@@ -53,7 +53,7 @@ export default function Experience()
     }) */
 
     return <>
-
+        <ambientLight intensity={1} />
         <color args={["#D489F3"]} attach={"background"} />
 
         
