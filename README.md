@@ -1,6 +1,8 @@
 # Rapport de stage
 
+### idées: 
 
+- La caméra commence sur le portail en gros plans (donne l'impression que c'est un background) et ensuite scroll et le titre part vers le haut
 
 ### erreurs: 
 
