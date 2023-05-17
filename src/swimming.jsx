@@ -31,7 +31,7 @@ export default function Swimming(props) {
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="Armature001">
-          <primitive object={swimming.scene} position={[position.x, position.y, 0]} rotation={[rotation.x, rotation.y, 0]} >
+          <primitive object={swimming.scene} position={[position.x, position.y, 0]} rotation={[-5.50, 1.75, 0]} >
           <skinnedMesh
             name="perso"
             geometry={nodes.perso.geometry}

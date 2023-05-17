@@ -1,7 +1,7 @@
-import { shaderMaterial, useAnimations, Sparkles, Center, useTexture, useGLTF, OrbitControls, Html, Box } from '@react-three/drei'
+import { shaderMaterial, useAnimations, Sparkles, Sky, Stars, Center, useTexture, useGLTF, OrbitControls, Html, Box } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
-import { useRef, useState } from 'react'
+import { useDebugValue, useRef, useState } from 'react'
 import portalVertexShader from './shaders/portal/vertex.glsl'
 import portalFragmentShader from './shaders/portal/fragment.glsl'
 import Swimming from "./swimming.jsx"
@@ -12,8 +12,8 @@ import { Perf } from 'r3f-perf'
 const PortalMaterial = shaderMaterial(
     {
         uTime: 0,
-        uColorStart: new THREE.Color('#ffffff'),
-        uColorEnd: new THREE.Color('#000000')
+        uColorStart: new THREE.Color('#FFFBDB'),
+        uColorEnd: new THREE.Color('#555555') 
     },
     portalVertexShader,
     portalFragmentShader
@@ -32,13 +32,19 @@ export default function Experience()
      * debug pannel
      */
     const {orbitCamera} = useControls({ orbitCamera: true })
-    
+    const {rotation} = useControls({
+        rotation:{
+            value: {x: 0, y: 0},
+            step: 0.01
+        }
+    })
 
     
 
-    const { nodes } = useGLTF('./model/tower.glb')
+    const { nodes } = useGLTF('./model/tower_v2.glb')
+    console.log(nodes)
 
-    const bakedTexture = useTexture('./model/baked.jpg')
+    const bakedTexture = useTexture('./model/tower_material.png')
     bakedTexture.flipY = false
     
     const portalMaterial = useRef()
@@ -47,30 +53,36 @@ export default function Experience()
     const [hidden, set] = useState()
     
     
-   /*  useFrame((state, delta) =>
+    useFrame((state, delta) =>
     {
         portalMaterial.current.uTime += delta
-    }) */
+    })
 
     return <>
+        <Stars attach={'background'} />
+
         <Perf position="top-left" />
 
         <ambientLight intensity={1} />
-        <color args={["#D489F3"]} attach={"background"} />
+        <color args={["#555555"]} attach={"background"} />
 
         
         { orbitCamera && <OrbitControls makeDefault /> }
 
         <Center>
-            <mesh geometry={ nodes.tower.geometry }>
-                <meshBasicMaterial />
+            <mesh geometry={ nodes.tower.geometry }  >
+                <meshBasicMaterial map={ bakedTexture } />
             </mesh>
 
-            <mesh geometry={ nodes.terrain.geometry }>
-                <meshBasicMaterial wireframe />
+            <mesh geometry={ nodes.terrain.geometry } >
+                <meshBasicMaterial map={ bakedTexture } />
             </mesh>
 
-            <mesh geometry={ nodes.cube.geometry }>
+            <mesh geometry={ nodes.porte.geometry } >
+                <portalMaterial ref={ portalMaterial } />
+            </mesh>
+
+            {/* <mesh geometry={ nodes.cube.geometry }>
             <Html
                  position={ [ 2, 1, 0 ] }
                  wrapperClass="label"
@@ -87,7 +99,7 @@ export default function Experience()
             </Html>
 
                 <meshBasicMaterial wireframe />
-            </mesh>
+            </mesh> */}
 
             <Swimming></Swimming>
 
@@ -119,12 +131,15 @@ export default function Experience()
             </mesh> */}
 
             <Sparkles
-		        size={ 6 }
-                scale={ [ 4, 2, 4 ] }
+		        size={ 10 }
+                scale={ [ 10, 5, 10 ] }
                 position-y={ 1 }
                 speed={ 0.2 }
                 count={ 40 }
+                color={'#caf0f8'}
             />
+            <Sky radius={1} sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25}   />
+        
         </Center>
 
     </>

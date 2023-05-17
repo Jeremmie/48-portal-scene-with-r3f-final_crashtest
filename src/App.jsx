@@ -16,7 +16,7 @@ export default function App() {
     const sheet = getProject("Fly Through", {state: flyThroughState}).sheet("Scene");
 
   return (
-    <Canvas gl={{ preserveDrawingBuffer: true }}>
+    <Canvas gl={{ preserveDrawingBuffer: true }} flat>
       <ScrollControls pages={5}>
         <SheetProvider sheet={sheet}>
           <Scene />
