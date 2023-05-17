@@ -1,4 +1,4 @@
-import { shaderMaterial, useAnimations, Sparkles, Sky, Stars, Center, useTexture, useGLTF, OrbitControls, Html, Box } from '@react-three/drei'
+import { shaderMaterial, useAnimations, Sparkles, Sky, Stars, Center, useTexture, useGLTF, OrbitControls, Cloud, Html, Box } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
 import { useDebugValue, useRef, useState } from 'react'
@@ -138,7 +138,15 @@ export default function Experience()
                 count={ 40 }
                 color={'#caf0f8'}
             />
-            <Sky radius={1} sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25}   />
+           {/*  <Sky radius={1} sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25}   /> */}
+            <Cloud
+                position={[5, 0, 0]}
+                opacity={0.2}
+                speed={0.05} // Rotation speed
+                width={20} // Width of the full cloud
+                depth={1.5} // Z-dir depth
+                segments={10} // Number of particles
+/>
         
         </Center>
 
