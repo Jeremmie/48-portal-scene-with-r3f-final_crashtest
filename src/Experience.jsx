@@ -44,7 +44,7 @@ export default function Experience()
     const { nodes } = useGLTF('./model/tower_v2.glb')
     console.log(nodes)
 
-    const bakedTexture = useTexture('./model/tower_material.png')
+    const bakedTexture = useTexture('./model/tower_material.jpg')
     bakedTexture.flipY = false
     
     const portalMaterial = useRef()
